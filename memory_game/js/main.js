@@ -1,6 +1,6 @@
 console.log("Up and running!");
 
-var cards = [
+const cards = [
 	{
 		rank: "queen",
 		suit: "hearts",
@@ -42,13 +42,14 @@ function flipCard() {
 	console.log(cards[cardId].suit);
 	//add card flipped to cardsInPlay array
 	cardInPlay.push(cards[cardId].rank);
-	
+
 	this.setAttribute('src', cards[cardId].cardImage);
 
 	//check if cards flipped match
 	if (cardInPlay.length === 2) {
 		checkForMatch();
-	};	
+		//location.reload(); reset game
+	};
 };
 
 //create new game board
@@ -56,7 +57,7 @@ function createBoard() {
 	for (var i = 0; i < cards.length; i++) {
 		var cardElement = document.createElement('img');
 		cardElement.setAttribute('src', "images/back.png");
-		cardElement.setAttribute('data-id', i);
+		cardElement.setAttribute('data-id', Math.floor(Math.random() * 4));
 		cardElement.addEventListener('click', flipCard);
 		document.getElementById('game-board').appendChild(cardElement);
 	};
