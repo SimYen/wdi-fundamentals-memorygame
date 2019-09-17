@@ -31,8 +31,8 @@ function checkForMatch() {
 		alert("You found a match!");
 	} else {
 		alert("Sorry, try again.");
-	};
-};
+	}
+}
 
 function flipCard() {
 	//display card flipped over
@@ -48,9 +48,11 @@ function flipCard() {
 	//check if cards flipped match
 	if (cardInPlay.length === 2) {
 		checkForMatch();
-		//location.reload(); reset game
-	};
-};
+		setTimeout( function() {
+            location.reload();
+        }, 1000);
+	}
+}
 
 //create new game board
 function createBoard() {
@@ -60,7 +62,7 @@ function createBoard() {
 		cardElement.setAttribute('data-id', Math.floor(Math.random() * 4));
 		cardElement.addEventListener('click', flipCard);
 		document.getElementById('game-board').appendChild(cardElement);
-	};
-};
+	}
+}
 
 createBoard();
