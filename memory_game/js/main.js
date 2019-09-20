@@ -48,9 +48,7 @@ function flipCard() {
 	//check if cards flipped match
 	if (cardInPlay.length === 2) {
 		checkForMatch();
-		setTimeout( function() {
-            location.reload();
-        }, 1000);
+		setTimeout( location.reload(), 1000 );
 	}
 }
 
